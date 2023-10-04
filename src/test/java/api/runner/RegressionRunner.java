@@ -2,7 +2,7 @@ package api.runner;
 
 import com.intuit.karate.junit5.Karate;
 
-public class SmokeRunner {
+public class RegressionRunner {
 	
 	//this class run karate with j unit 5.
 	//we need here a method that can run test which unit 5 and we'll learn how to pass tags in here to run in. 
@@ -13,7 +13,7 @@ public class SmokeRunner {
 		//address for our feature files.
 		//And tags
 		return Karate.run("classpath:features")
-				.tags("@Smoke");
+				.tags("@Regression");
 		
 	}
 

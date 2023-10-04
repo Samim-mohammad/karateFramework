@@ -22,31 +22,30 @@
 	</dependencies>
 
 	<!-- Adding build plugins to this project-->
-	
-    <!-- ... other project information ... -->
+	<build>
+		<plugins>
+			<plugin>
+			
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
+				<!-- Configuration for the maven-compiler-plugin, if any -->
+			</plugin>
 
-    <build>
-        <plugins>
-            <!-- Maven Compiler Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <!-- Configuration for the maven-compiler-plugin, if any -->
-            </plugin>
+			<!-- Maven Surefire Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<includes>
+						<!--Parametrize Runner for Sureifre Plugins -->
+						<!-- In order to run with maven command should -->
+						<!-- clean test -Drunner=<SmokeRunner /RegressionRunner> -->
 
-            <!-- Maven Surefire Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <!-- Configuration for the maven-surefire-plugin, if any -->
-                    <includes>
-                        <include>TestRunner.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+						<include>${runner}.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
